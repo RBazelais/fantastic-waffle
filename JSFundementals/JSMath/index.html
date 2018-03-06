@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Math</title>
+</head>
+<body>
+    <h4>It's Alive!!!</h4>
+    <script>
+        // Math 1
+        function zero_negativity(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                if(arr[i] < 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Math 2
+        function is_even(n) {
+            if(n % 2 === 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        // Math 3
+        function how_many_even(arr) {
+            var count = 0;
+            for (let j = 0; j < arr.length; j++) {
+                if(is_even(arr[j]) === true){
+                count++;
+                }    
+            }
+            return count;
+        }
+
+        // Math 4
+        function create_dummy_array(n) {
+            
+        }
+
+        // Math 5
+        function random_choice(arr) {
+            let x = Math.floor(Math.random() * arr.length);
+            return arr[x];
+        }
+    </script>
+</body>
+</html>

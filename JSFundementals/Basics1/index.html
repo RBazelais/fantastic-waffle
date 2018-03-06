@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basics 1</title>
+</head>
+<body>
+    <h4>It's Alive!!!</h4>
+    <script>
+        // Basic 1
+        let x = [];
+        x.push('coding');
+        x.push('dojo');
+        x.push('rocks');
+        x.pop();
+        console.log(x); // ['coding, 'dojo']
+        
+        // Basic 2
+        const y = [];
+        y.push(88); // it pushed 88 to the array
+
+        // Basic 3
+        var z = [9, 10, 6, 5, -1, 20, 13, 2];
+        for(var i = 0; i < z.length; i++){
+            console.log(z[i]);
+            if (z[i] === (z.length-2)){
+                break;
+            }
+        }
+
+        // Basic 4
+        let names = ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso'];
+        for(let j = 0; j < names.length; j++){
+            if (names[j].length === 5){
+                console.log(names[j]);
+            }
+        }
+
+        // Basic 5
+        function yell(string) {
+            console.log(string.toUpperCase());
+        }
+    </script>
+</body>
+</html>
