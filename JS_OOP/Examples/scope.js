@@ -53,5 +53,5 @@ function Person(name, age) {
         privateMethod();
     }
 }
-const joe = new Person("Joe", 23);
+const jim = new Person("Jim", 23);
 joe.greet();
