@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Ninja Class</title>
+</head>
+<body>
+	<h4>Ninja Class III</h4>
+	<script>
+		class Ninja {
+			constructor(name, health, speed, strength){
+                this.name = name;
+                this.health = health;
+                this.speed = speed;
+                this.strength = strength;
+            }
+
+			sayName(){
+				console.log("My name is " + this.name + "!");
+			}
+
+			showStats(){
+				console.log("Name: " + this.name + "\nHealth: " + this.health + "\nSpeed: " + this.speed + "\nStrength: " + this.strength);
+			}
+
+			drinkSake(){
+                this.speed += 10;
+                console.log("New speed: " + this.speed);
+                // console.log("Quote: 'Anger only makes you furious not powerful.'")
+            }
+            
+        }
+        // child Sensei class
+        class Sensei extends Ninja {
+            constructor(name, health, speed, strength, wisdom) {
+                super(name, health, speed, strength);
+                this.wisdom = wisdom;
+            }
+            
+            speakWisdom() {
+                // by using super, we can call the parent method
+                super.drinkSake();
+                console.log("What one programmer can do in one month, two programmers can do in two months.");
+
+            }
+        }
+
+        const superSensei = new Sensei("Master Splinter", 200, 10, 10);
+        superSensei.speakWisdom();
+        // -> "What one programmer can do in one month, two programmers can do in two months."
+        superSensei.showStats();
+        // -> "Name: Master Splinter, Health: 210, Speed: 10, Strength: 10"
+
+	</script>
+</body>
+</html>

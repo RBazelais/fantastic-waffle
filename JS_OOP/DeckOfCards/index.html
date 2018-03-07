@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Ninja Class</title>
+</head>
+<body>
+	<h4>Deck of Cards</h4>
+	<script>
+		class Deck {
+			constructor(){
+                this.cards = this.reset();
+                // this.shuffle();
+            }
+
+            reset(){
+                // place to store 52 cards then push to array
+                
+                let result = [];
+                let card_info = {
+                    'Ace': 1,
+                    'Two': 2,
+                    'Three': 3,
+                    'Four': 4,
+                    'Five': 5,
+                    'Six': 6,
+                    'Seven': 7,
+                    'Eight': 8,
+                    'Nine': 9,
+                    'Ten': 10,
+                    'Jack': 11,
+                    'Queen': 12,
+                    'King': 13
+                }
+                // generate 52 cards
+                // for each suit, generate 1 card for each value/name
+                for(let suit of ['Hearts', 'Spades', 'Clubs', 'Diamonds']){
+                    // for each value
+                    for(var card in card_info){
+                        // make a card
+                        let new_card = {
+                            'name': card,
+                            'value': card_info[card],
+                            'suit': suit
+                        }
+                        // add it to result
+                        result.push(new_card)
+                    }      
+                }
+                // return list of cards
+                return result;
+            }
+
+            shuffle(){
+                let deck = this.cards;
+                for(let i = deck.length-1; i >= 0; i--){
+                    let rdx = Math.floor(Math.random()*i);
+                    //swap the cards
+                    let x = deck[i];
+                    deck[i] = deck[rdx];
+                    deck[rdx] = x;
+                }
+                return this;
+            }
+
+            deal(){
+                // remove a card from the deck
+                let card = this.cards.pop();
+                // give it back for peeps to take
+                return card;
+            }
+
+            toString(){
+                return 
+            }
+        }
+
+        class Player {
+			constructor(name){
+                this.name = name;
+                this.hand = [];
+            }
+
+            // pass a deck to the player
+            draw(target_deck){
+                // get a card
+                let drawn_card = target_deck.deal();
+                // add it to player's hand
+                this.hand.push(drawn_card);
+                return this; // allows you to chain this method
+            }
+
+            discard(target){
+                // remove a card [randomly selected] from hand
+                // randomly choose an index
+                if (!this.hand){
+                    return; // ("Your hand is empty")
+                }
+                let random_index = Math.floor(Math.random() * this.hand.length-1);
+                let discarded_card = this.hand.splice(random_index, 1)[0];
+                // pass that card along
+                if (target){
+                    target.push(discarded_card);
+                    return {};
+                }else{
+                    return discarded_card;
+                }
+                
+            }
+        }
+
+        a = new Deck(); 
+        console.log(a);
+        console.log(a.cards.length);
+        graveyard = [];
+
+        // b = new Player('Jim'); // create new deck
+        // b.draw(a); // draw from the deck
+        // console.log(a.cards.length);
+        // console.log(b.hand); // show player hand
+        // console.log(b.hand);
+
+        // c = new Player ('person')
+
+        console.log
+	</script>
+</body>
+</html>
