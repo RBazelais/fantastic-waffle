@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous"> -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+        #success{
+            background-color: lightgreen;
+
+        }
+		.outline{
+			margin: auto;
+			border: 3px solid #000;
+			padding: 20px;
+			width: 60%;
+			text-align: left;
+			font-family: 'Arial', sans-serif;
+			font-size: 16px;
+		}
+        span{
+            text-decoration: underline;
+        }
+	</style>
+	<title>Survey Form Express</title>
+</head>
+<body>
+    <div class="outline" id="success">
+        <p>Thanks for submitting this form! You have submitted this form <%= count %> times now.</p>
+    </div>
+    <br>
+	<div class="outline">
+		<h4><span>Submitted Information</span></h4>
+        <br>
+        <div id="info">
+            <p>Name: <%= name %></p>
+            <p>Dojo Location: <%= location %></p>
+            <p>Favorite Language: <%= language %></p>
+            <p>Comment: <%= comment %></p>
+        </div>
+        <form action="/" method="POST" class="form-group">
+            <input type="submit" value="Go Back" class="btn btn-default"></input>
+        </form>
+    </div>
+</body>
+</html>
