@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		.outline{
+			margin: auto;
+			border: 3px solid #000;
+			padding: 20px;
+			width: 60%;
+			text-align: center;
+			font-family: 'Arial', sans-serif;
+			font-size: 16px;
+		}
+		#epic_button{
+			background-color: #085394;
+			border-radius: 5px;
+			padding: 10px 15px;
+			color: #fff;
+		}
+	</style>
+	<title>Epic Button Game</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function() {
+            var socket = io.connect();
+            var num = 0;
+            $('#epic_button').click(() => {
+                event.preventDefault();
+                //incremenet number count
+                num++;
+                //make an emit to the server, sending data from the form
+                socket.emit('increment_num', num);
+                socket.on("send_back_number", function(msg) {
+					console.log("********* client: \n" + msg);
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+	<div class="outline">
+		<h3>The button has been pushed <%= num %> time(s)</h3>
+		<form class="form-horizontal">
+			<p>Push the button to update the count!</p>
+			<button type="submit" id="epic_button" class="btn btn-default">Push the Epic Button</button>
+		</form>
+		<button type="submit" class="btn btn-default">Reset</button>
+
+	</div>
+</body>
+</html>
