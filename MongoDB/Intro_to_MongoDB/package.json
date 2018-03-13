@@ -1,0 +1,17 @@
+{
+  "name": "intro_to_mongodb",
+  "version": "1.0.0",
+  "description": "first mongodb assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongodb"
+  ],
+  "author": "rachél bazelais",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^2.2.35"
+  }
+}

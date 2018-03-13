@@ -36,16 +36,20 @@
                 num++;
                 //make an emit to the server, sending data from the form
                 socket.emit('increment_num', num);
-                socket.on("send_back_number", function(msg) {
-					console.log("********* client: \n" + msg);
-                })
+                
+            })
+
+            socket.on("send_back_number", function(data) {
+                console.log("********* client: \n" + data.msg);
+                $("#num").text(data.num); // JQuery equivalent to innerHTML.
             })
         })
     </script>
 </head>
 <body>
 	<div class="outline">
-		<h3>The button has been pushed <%= num %> time(s)</h3>
+		<!-- <h3>The button has been pushed <%= num %> time(s)</h3> -->
+		<h3>The button has been pushed <span id="num">0</span> time(s)</h3>
 		<form class="form-horizontal">
 			<p>Push the button to update the count!</p>
 			<button type="submit" id="epic_button" class="btn btn-default">Push the Epic Button</button>

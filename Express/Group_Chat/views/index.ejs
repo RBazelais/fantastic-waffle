@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		.outline{
+			margin: auto;
+			border: 3px solid #000;
+			padding: 20px;
+            height: 100%;
+			width: 60%;
+			text-align: left;
+			font-family: 'Arial', sans-serif;
+			font-size: 16px;
+		}
+        .outline:first-child{
+            height: 400px;
+            border-bottom: none;
+        }
+	</style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h4>Conversation Board</h4>
+    <div class="outline">
+        <table id="chat" cellpadding="15"></table>
+    </div>
+    <div class="outline">
+        <form class="form-inline">
+            <div class="form_group">
+                <input type="text" class="form-control" id="message" name="message" placeholder="Enter your message here">
+                <button type="submit" class="btn btn-default">send</button>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        // store user's name
+        let name = prompt("Page at https:localhost says:\nYour name:");
+        var socket = io.connect();
+        $('button').click(function () {
+            event.preventDefault();
+            console.log("button clicked");
+            console.log(name);
+            $( `
+                <tr>
+                    <td>${name}: </td>
+                    <td>${$('#message').val()}</td>
+                </tr>
+            ` )
+            .appendTo( "#chat" );
+        });
+        socket.on('server_response', function (data) {
+            console.log('The server says: ' + data.response);
+        });
+    });
+</script>
+</body>
+</html>

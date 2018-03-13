@@ -40,7 +40,7 @@ io.sockets.on('connection', function(socket){
 		var msg = `The button has be pushed ${data} time(s)`;
 
 		//emit message to client
-		socket.emit("send_back_number", msg);
+		socket.emit("send_back_number", { msg: msg, num: num });
 		console.log("******* server: \n" + msg);
 		
 	})
