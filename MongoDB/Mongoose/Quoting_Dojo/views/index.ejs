@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		#outline{
+			margin: auto;
+			border: 3px solid #000;
+			padding: 20px;
+			width: 60%;
+			text-align: center;
+			font-family: 'Arial', sans-serif;
+			font-size: 16px;
+		}
+		#all_users{
+			text-align: left;
+		}
+	</style>
+	<title>Quoting Dojo</title>
+</head>
+<body>
+	<div id="outline">
+		<h3>Quoting Dojo</h3>
+		<form class="form-horizontal" action="/quotes" method="POST">
+			<div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Your Name: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name" placeholder="Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quote" class="col-sm-2 control-label">Your Quote: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="quote" placeholder="I make lame jokes">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10"></div>
+                    <button onclick="document.location.href='/quotes'" type="submit" class="btn btn-default">Add my quote</button>
+                    <button onclick="document.location.href='quotes'" type="button" class="btn btn-default">Skip to quotes</button>
+                </div>
+            </div>
+		</form>
+	</div>
+</body>
+</html>

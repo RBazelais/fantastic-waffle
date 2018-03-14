@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		#outline{
+			margin: auto;
+			border: 3px solid #000;
+			padding: 20px;
+			width: 60%;
+			text-align: center;
+			font-family: 'Arial', sans-serif;
+			font-size: 16px;
+		}
+		#all_guards{
+			text-align: left;
+		}
+	</style>
+	<title>CRUD Dashboard</title>
+</head>
+<body>
+	<div id="outline">
+		<h3>Mighty Mouse Guard!</h3>
+		<table class="table table-striped" id="all_guards">
+			<tr>
+				<td>Name</td>
+				<td>Weapon</td>
+				<td></td>
+			</tr>
+			<% for (var i = 0; i < guards.length; i++){  %>
+				<tr>
+					<td><%= guards[i].first_name %> <%= guards[i].last_name %></td>
+					<td><%= guards[i].weapon %></td>
+					<td></td>
+				</tr>
+			<% } %>
+		</table>
+		<button onclick="document.location.href='/mouseguard/new'" type="button" class="btn btn-default">Join the Guard</button>
+	</div>
+</body>
+</html>

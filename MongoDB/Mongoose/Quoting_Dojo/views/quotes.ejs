@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		#outline{
+			margin: auto;
+			border: 3px solid #000;
+			padding: 20px;
+			height: 600px;
+			width: 60%;
+			font-family: 'Arial', sans-serif;
+			font-size: 16px;
+			overflow: scroll;
+		}
+		#all_quotes{
+			text-align: left;
+		}
+	</style>
+	<title>Quoting Dojo</title>
+</head>
+<body>
+	<div id="outline">
+		<h3>All The Quotes!</h3>
+		<table id="all_quotes">
+			<% for (var i in quotes){  %>
+				<p>"<%= quotes[i].quote %>"</p>
+				<p>-<%= quotes[i].name %> at <%= quotes[i].createdAt %></p>
+				<hr>
+			<% } %>
+		</table>
+	</div>
+
+</body>
+</html>
