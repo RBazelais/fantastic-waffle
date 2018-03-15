@@ -16,8 +16,9 @@
 			font-family: 'Arial', sans-serif;
 			font-size: 16px;
 		}
-		#all_guards{
-			text-align: left;
+
+		#all_guards, th{
+			text-align: center;
 		}
 	</style>
 	<title>CRUD Dashboard</title>
@@ -25,19 +26,27 @@
 <body>
 	<div id="outline">
 		<h3>Mighty Mouse Guard!</h3>
-		<table class="table table-striped" id="all_guards">
-			<tr>
-				<td>Name</td>
-				<td>Weapon</td>
-				<td></td>
-			</tr>
+		<table class="table table-striped table-bordered table-responsive" id="all_guards">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Weapon</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
 			<% for (var i = 0; i < guards.length; i++){  %>
 				<tr>
 					<td><%= guards[i].first_name %> <%= guards[i].last_name %></td>
 					<td><%= guards[i].weapon %></td>
-					<td></td>
+					<td>
+						<a href="/mouseguard/<%= guards[i].id %>">show</a> |
+						<a href="/mouseguard/edit/:id">edit</a> |
+						<a href="/mouseguard/destroy/:id">delete</a>
+					</td>
 				</tr>
 			<% } %>
+			</tbody>
 		</table>
 		<button onclick="document.location.href='/mouseguard/new'" type="button" class="btn btn-default">Join the Guard</button>
 	</div>

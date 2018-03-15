@@ -37,7 +37,8 @@ app.get('/', function (req, res) {
 	Mouse.find({}, function(err, guards){
 		if (err){ console.log(err); }
 
-	console.log('Finding Mouse Guard members...\n', guards); 
+	// console.log('Finding Mouse Guard members...\n', guards); 
+	console.log('Finding Mouse Guard members...\n'); 
 	res.render('index', {guards : guards});
 	});
 });
@@ -65,15 +66,16 @@ app.post('/mouseguard', function(req, res){
 
 });
 
-// app.get('/mouseguard/:id', function(req, res){
-// 	console.log("Show your self Mouse!");
-// 	// console.log(mouse.first_name + ' ' + mouse.last_name + 'of the Mouse Guard has arrived');
-// 	// Mouse.findOne({_id}, function(err, mouse){
-// 	// 	if (err){ res.render(err);}
-// 	// 	res.render('index');
-// 	// });
-// 	// console.log('Finding Mouse Guard members...'); 
-// });
+app.get('/mouseguard/:id', function(req, res){
+	console.log("Show your self Mouse!");
+	console.log(req.params.id); // :id
+	// console.log(Mouse.findOne({_id: req.params.id}));
+	// console.log(Mouse.first_name + ' ' + Mouse.last_name + 'of the Mouse Guard has arrived');
+	Mouse.findOne({_id: req.params.id}, function(err, guards){
+		if (err){ res.render(err);}
+		res.render('display', {guards:guards});
+	});
+});
 
 // app.get('/mouseguard/edit:id', function(req, res){
 // 	console.log("POST DATA - Edit", req.body);

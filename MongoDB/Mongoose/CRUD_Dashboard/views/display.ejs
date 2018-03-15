@@ -12,20 +12,19 @@
 			border: 3px solid #000;
 			padding: 20px;
 			width: 60%;
-			text-align: center;
+			text-align: left;
 			font-family: 'Arial', sans-serif;
 			font-size: 16px;
-		}
-		#all_users{
-			text-align: left;
 		}
 	</style>
 	<title>CRUD Dashboard</title>
 </head>
 <body>
 	<div id="outline">
-		<h3>Mighty Mouse Guard!</h3>
-		
+		<h5><%= guards.first_name %>  of Peeble Brooke </h5>
+		<p>First Name: <%= guards.first_name %></p>
+		<p>Last Name: <%= guards.last_name %></p>
+		<p>Weapon: <%= guards.weapon %></p>
 	</div>
 </body>
 </html>
